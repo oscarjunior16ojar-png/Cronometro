@@ -121,8 +121,9 @@ export default function App() {
                       <input 
                         type="number"
                         className="w-full p-5 bg-white border-4 border-neutral-900 rounded-none font-bold text-lg focus:bg-yellow-50 outline-none"
-                        value={config.duration}
-                        onChange={(e) => setConfig({ ...config, duration: parseInt(e.target.value) || 0 })}
+                        value={config.duration || ''}
+                        onChange={(e) => setConfig({ ...config, duration: e.target.value === '' ? 0 : parseInt(e.target.value) })}
+                        placeholder="Ej: 90"
                       />
                     </div>
 
@@ -133,8 +134,9 @@ export default function App() {
                       <input 
                         type="number"
                         className="w-full p-5 bg-white border-4 border-neutral-900 rounded-none font-bold text-lg focus:bg-yellow-50 outline-none"
-                        value={config.questionCount}
-                        onChange={(e) => setConfig({ ...config, questionCount: parseInt(e.target.value) || 0 })}
+                        value={config.questionCount || ''}
+                        onChange={(e) => setConfig({ ...config, questionCount: e.target.value === '' ? 0 : parseInt(e.target.value) })}
+                        placeholder="Ej: 40"
                       />
                     </div>
 
